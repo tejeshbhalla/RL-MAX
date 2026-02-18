@@ -144,7 +144,7 @@ For each training step:
 ## Known Limitations
 
 - **Sequence-level loss**: ratios are computed at the sequence level (sum of token log probs), not per-token. Can be unstable for long completions.
-- **No KL penalty**: no reference model constraint — policy can drift far from the base model.
+- **No KL penalty**: Has been removed and since its rlvr dont need it prob need it to prevent reward hacking 
 - **No micro-batching**: entire batch goes through one forward pass. Large batches or long sequences may OOM.
 - **Disk-based weight sync**: checkpoint save + vLLM reload is slow. Production systems use shared memory.
 - **Hardcoded prompts**: uses 4 fixed prompts. Needs proper dataset integration.
