@@ -123,34 +123,7 @@ Main training loop:
 3. Run `num_epochs` gradient updates per batch (old log probs frozen, new log probs updated each epoch)
 4. Save checkpoint + reload vLLM weights
 
-## Configuration
 
-### DeepSpeed (`config/ds_config.json`)
-
-```json
-{
-  "bf16": {"enabled": true},
-  "zero_optimization": {
-      "stage": 2,
-      "offload_optimizer": {"device": "cpu", "pin_memory": true}
-  },
-  "gradient_clipping": 1.0,
-  "train_batch_size": 16,
-  "train_micro_batch_size_per_gpu": 16
-}
-```
-
-### Training Hyperparameters
-
-| Parameter | Default | Location |
-|-----------|---------|----------|
-| Learning rate | 1e-6 | `trainer.py` |
-| Clip epsilon | 0.2 | `trainer.py` |
-| Group size | 4 | `orchestrator.py` |
-| Epochs per step | 4 | `orchestrator.py` |
-| Max tokens | 128 | `orchestrator.py` |
-| Temperature | 0.7 | `orchestrator.py` |
-| Training steps | 10 | `orchestrator.py` |
 
 ## GRPO Algorithm Summary
 
