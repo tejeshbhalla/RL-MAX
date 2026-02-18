@@ -1,0 +1,9 @@
+vllm 
+torch 
+transformers 
+deepspeed 
+accelerate
+httpx
+peft
+datasets
+tiktoken
